@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    Giá cước: <br>
+    -6s đầu: nội mạng: 100vnd/s , ngoại mạng: 200vnd/s<br>
+    -1s tiếp: nội mang: 50vnd/s , ngoại mạng: 100vnd/s <br> <br>
+    Tổng thời gian gọi nội mạng tháng này(tính theo giây): <br>
+    <input type="number" id="time1" min="0"><br>
+    Tổng thời gian gọi ngoại mạng tháng này(tính theo giây): <br>
+    <input type="number" id="time2" min="0">    <br>
+    <button type="button" onclick="math()">Tính tiền</button>
+    <div id="result"></div>
+    <script>
+        function math(){
+            let time1 = parseInt(document.getElementById("time1").value);
+            let time2 = parseInt(document.getElementById("time2").value);
+            if(time1>=0 && time2>=0){
+                let sum1;
+                let sum2;
+                if(time1 > 6){
+                    sum1 =6*100+(time1-6)*50;
+                }
+                else{
+                    sum1=time1*100;
+                }
+                if(time2 > 6){
+                    sum2 =6*200+(time2-6)*100;
+                }
+                else{
+                    sum2=time2*200;
+                }
+                let sum=sum1+sum2;
+                document.getElementById("result").innerHTML="Tổng Cước Phí Tháng:" +sum+ " VND";
+            }
+            else{
+                document.getElementById("result").innerHTML="nhập sai";
+            }
+        }
+    </script>
+</body>
+</html>

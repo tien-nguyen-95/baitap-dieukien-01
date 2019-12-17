@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    Từ 0 đến 2.000.000 => 3%<br>
+    Trên 2.000.000 đến 5.000.000 => 5%<br>
+    Trên 5.000.000 => 10%<br>
+    Nhập doanh số:<br> 
+    <input type="number" id="num" min="0">
+    <button type="button" onclick="math()">Tính hoa hồng</button>
+    <div id="result"></div>
+    <script>
+        function math(){
+            let num=parseInt(document.getElementById("num").value);
+            if(num >= 0 && num <= 2000000){
+                document.getElementById("result").innerHTML=num*0.03;
+            }
+            else if(num > 2000000 && num <= 5000000){
+                document.getElementById("result").innerHTML=2000000*0.03+(num-2000000)*0.05;
+            }
+            else if(num > 5000000){
+                document.getElementById("result").innerHTML=2000000*0.03+3000000*0.05+(num-5000000)*0.1;
+            }
+            else{
+                document.getElementById("result").innerHTML="nhập sai";
+            }               
+        }
+    </script>
+</body>
+</html>
